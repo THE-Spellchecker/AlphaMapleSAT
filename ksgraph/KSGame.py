@@ -98,14 +98,6 @@ class KSGame(Game):
         return np.array(valids)
 
     def getGameEnded(self, board: Board, eval_cls=False):
-        """
-        Input:
-            board: current board
-
-        Returns:
-            r: 0 if game has not ended, reward otherwise. 
-               
-        """
         if self.args.MCTSmode in [0, 2]:
             return self.getGameEndedMode0(board, eval_cls)
 
@@ -158,18 +150,6 @@ class KSGame(Game):
 
 
     def getCanonicalForm(self, board):
-        """
-        Input:
-            board: current board
-
-        Returns:
-            canonicalBoard: returns canonical form of board. The canonical form
-                            should be independent of player. For e.g. in chess,
-                            the canonical form can be chosen to be from the pov
-                            of white. When the player is white, we can return
-                            board as is. When the player is black, we can invert
-                            the colors and return the board.
-        """
         return board
 
     # def _unique_permutations(x):
@@ -185,16 +165,6 @@ class KSGame(Game):
     #     return [x[p] for p in multiset_permutations(idxs)]
 
     def getSymmetries(self, board, pi):
-        """
-        Input:
-            board: current board
-            pi: policy vector of size self.getActionSize()
-
-        Returns:
-            symmForms: a list of [(board,pi)] where each tuple is a symmetrical
-                       form of the board and the corresponding pi vector. This
-                       is used when training the neural network from examples.
-        """
         return [(board, pi)]
 
     def stringRepresentation(self, board):
