@@ -34,7 +34,7 @@ class Coach():
         self.nn_iteration = None
         self.mcts = MCTS(self.nnet, self.args, self.all_logging_data, self.nn_iteration, cache_data=None)
         self.trainExamplesHistory = []  # history of examples from args.numItersForTrainExamplesHistory latest iterations
-        self.skipFirstSelfPlay = False  # can be overriden in loadTrainExamples()
+        self.skipFirstSelfPlay = False  # can be overridden in loadTrainExamples()
         self.leaf_counter = 0
 
     def DFSUtil(self, game, board, level, trainExamples, all_cubes, all_cubes_verbose):
